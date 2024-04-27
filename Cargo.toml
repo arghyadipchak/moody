@@ -1,0 +1,28 @@
+[package]
+name = "moody"
+version = "0.1.0"
+authors = ["Arghyadip Chakraborty <arghyadip.chak16@gmail.com>"]
+edition = "2021"
+description = "Moodle cli that interacts with assignments"
+homepage = "https://github.com/arghyadipchak/moody"
+repository = "https://github.com/arghyadipchak/moody"
+license = "MIT"
+keywords = ["moodle", "cli"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+chrono = { version = "0.4.38", features = ["serde"] }
+clap = { version = "4.5.4", features = ["derive", "env"] }
+reqwest = { version = "0.12.4", features = ["blocking"] }
+serde = "1.0.199"
+serde_json = "1.0.116"
+serde_yaml = "0.9.34"
+tabled = "0.15.0"
+thiserror = "1.0.59"
+url = { version = "2.5.0", features = ["serde"] }
+
+[profile.release]
+codegen-units = 1
+lto = true
+panic = "abort"
+strip = true
