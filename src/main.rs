@@ -123,10 +123,10 @@ fn download_submissions(
     })
     .collect();
 
-  let out_file = output_file.unwrap_or_else(|| {
+  let output_file = output_file.unwrap_or_else(|| {
     PathBuf::from(format!("assignment_{assignment_id}.yml"))
   });
-  let fh = File::create(&out_file)?;
+  let fh = File::create(output_file)?;
 
   write!(&fh, "{MOODY_DICLAIMER}\n\n")?;
   serde_yaml::to_writer(
@@ -138,8 +138,6 @@ fn download_submissions(
       submissions,
     },
   )?;
-
-  println!("{}", out_file.to_string_lossy());
 
   Ok(())
 }
