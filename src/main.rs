@@ -123,8 +123,9 @@ fn download_submissions(
     })
     .collect();
 
-  let out_file = output_file
-    .unwrap_or_else(|| PathBuf::from(format!("ass{assignment_id}.yml")));
+  let out_file = output_file.unwrap_or_else(|| {
+    PathBuf::from(format!("assignment_{assignment_id}.yml"))
+  });
   let fh = File::create(&out_file)?;
 
   write!(&fh, "{MOODY_DICLAIMER}\n\n")?;

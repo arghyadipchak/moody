@@ -24,6 +24,7 @@ pub enum Commands {
     #[arg(short, long)]
     course_id: u64,
   },
+
   DownloadSubmissions {
     #[arg(short, long)]
     course_id: u64,
@@ -34,6 +35,7 @@ pub enum Commands {
     #[arg(short, long)]
     output_file: Option<PathBuf>,
   },
+
   UploadGrades {
     #[arg(short, long)]
     file: PathBuf,
